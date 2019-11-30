@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>656159471575-i5nn31h5t9hi6al7t6tl3iof8p8lt4p9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.656159471575-i5nn31h5t9hi6al7t6tl3iof8p8lt4p9</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDZWeN2G6FoZVmXposrCoBCrDX9Kv_vWZ4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>656159471575</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>The-Best-Programmer-Ever.PursuitGram</string>
+	<key>PROJECT_ID</key>
+	<string>pursuitgram-2c9d5</string>
+	<key>STORAGE_BUCKET</key>
+	<string>pursuitgram-2c9d5.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:656159471575:ios:7e7fa4aa49437049b0bd92</string>
+	<key>DATABASE_URL</key>
+	<string>https://pursuitgram-2c9d5.firebaseio.com</string>
+</dict>
+</plist>
