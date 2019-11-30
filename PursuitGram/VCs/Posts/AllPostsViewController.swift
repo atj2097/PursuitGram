@@ -39,17 +39,6 @@ class AllPostsViewController: UIViewController {
         }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 extension AllPostsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -59,8 +48,17 @@ extension AllPostsViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.timeLineCell.rawValue, for: indexPath) as! PostCell
         var currentPost = posts[indexPath.row]
-        cell.postImage.loadImageUsingCacheWithUrlString(currentPost.imageURL)
-        cell.postCreator.text = currentPost.creatorID
+        ImageHelper.shared.getImage(urlStr: currentPost.imageURL) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let imageFromOnline):
+                    cell.postImage.image = imageFromOnline
+                }
+            }
+        }
+        cell.postCreator.text = currentPost.userName
         return cell
     }
     

@@ -8,58 +8,82 @@
 
 import UIKit
 import Photos
-
+import Firebase
 class UserProfileViewController: UIViewController {
     var user: AppUser!
     var isCurrentUser = false
     
-    @IBOutlet weak var profileImage: UIImageView!
+    var posts = [Post]() {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
-    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var emailText: UILabel!
     @IBOutlet weak var numberOfPosts: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var userNameTextField: UITextField!
-
-    @IBOutlet weak var editEmailTextField: UITextField!
     
-    @IBAction func changeProfilePic(_ sender: Any) {
-    }
-    @IBAction func editProfilePic(_ sender: Any) {
-        userNameTextField.isHidden = false
-        editEmailTextField.isHidden = false
-        
-        setUpViews()
-    }
-    @IBOutlet weak var editProfile: UIButton!
+    
+    
     override func viewWillAppear(_ animated: Bool) {
-        userNameTextField.isHidden = true
-        editEmailTextField.isHidden = true
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
+        user = AppUser(from: FirebaseAuthService.manager.currentUser!)
+        getPostsForThisUser()
+        setUpViews()
         // Do any additional setup after loading the view.
     }
     func setUpViews()  {
-        //TO DO: Set up profilePic
-        userNameLabel.text = user.userName
+        numberOfPosts.text = "\(posts.count)"
         emailText.text = user.email
     }
-}
 
-
-
-extension UserProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
-        return
-    }
-    if let asset = info[UIImagePickerController.InfoKey.phAsset] as? PHAsset{
-        if let fileName = asset.value(forKey: "filename") as? String{
-         
+    private func getPostsForThisUser() {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            FirestoreService.manager.getPosts(forUserID: self?.user.uid ?? "") { (result) in
+                switch result {
+                case .success(let posts):
+                    self?.posts = posts
+                case .failure(let error):
+                    print(":( \(error)")
+                }
+            }
         }
     }
+    
+    private func showAlert(with title: String, and message: String) {
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alertVC, animated: true, completion: nil)
+    }
+    
 }
+
+extension UserProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+       return posts.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.userPostCell.rawValue, for: indexPath) as! UserCell
+        var currentPost = posts[indexPath.row]
+        ImageHelper.shared.getImage(urlStr: currentPost.imageURL) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let imageFromOnline):
+                    cell.userPost.image = imageFromOnline
+                }
+            }
+        }
+        return cell 
+    }
+    
+    
 }
+
+
+

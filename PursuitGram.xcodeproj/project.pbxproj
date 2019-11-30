@@ -36,6 +36,7 @@
 		CBF2548F238F14E700E989A7 /* PursuitGramTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF2548E238F14E700E989A7 /* PursuitGramTabBarVC.swift */; };
 		CBF9267C23930F2700B77629 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF9267B23930F2700B77629 /* UIImageViewExtension.swift */; };
 		CBF9267E239310BD00B77629 /* FirebaseStorageSerivce.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF9267D239310BD00B77629 /* FirebaseStorageSerivce.swift */; };
+		CBF926802393221200B77629 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF9267F2393221200B77629 /* UserCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		CBF2548E238F14E700E989A7 /* PursuitGramTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PursuitGramTabBarVC.swift; sourceTree = "<group>"; };
 		CBF9267B23930F2700B77629 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		CBF9267D239310BD00B77629 /* FirebaseStorageSerivce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageSerivce.swift; sourceTree = "<group>"; };
+		CBF9267F2393221200B77629 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		D6B8E3794EA0C4F0AA4E3A77 /* Pods-PursuitGramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PursuitGramTests.release.xcconfig"; path = "Target Support Files/Pods-PursuitGramTests/Pods-PursuitGramTests.release.xcconfig"; sourceTree = "<group>"; };
 		DDCA57D12E42BDD671DC9672 /* Pods_PursuitGram_PursuitGramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PursuitGram_PursuitGramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB135BBC194FA3D534A4275 /* Pods_PursuitGramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PursuitGramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -270,6 +272,7 @@
 			children = (
 				CBB29581238F0ABD00949C32 /* CellIdentifier.swift */,
 				CBB80523238F0E87000B3AA3 /* PostCell.swift */,
+				CBF9267F2393221200B77629 /* UserCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				CBB29574238F081300949C32 /* SignUpViewController.swift in Sources */,
 				CBF9267E239310BD00B77629 /* FirebaseStorageSerivce.swift in Sources */,
 				CB9BEE6E2392D50B0044D04A /* ImageHelper.swift in Sources */,
+				CBF926802393221200B77629 /* UserCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

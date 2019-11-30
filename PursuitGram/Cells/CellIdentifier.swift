@@ -10,7 +10,7 @@ import Foundation
 
 enum CellIdentifier: String {
     case timeLineCell
-    case userListCell
+    case userPostCell
     case postHeaderCell
     case userHeaderCel
     case commentCell
