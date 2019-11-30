@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
             return
         }
         
-        FirebaseAuthService.manager.loginUser(email: email.lowercased(), password: password) { (result) in
+       FirebaseAuthService.manager.loginUser(email: email.lowercased(), password: password) { (result) in
             self.handleLoginResponse(with: result)
         }
     }
@@ -77,7 +77,7 @@ class LoginViewController: UIViewController {
         present(alertVC, animated: true, completion: nil)
     }
     
-    private func handleLoginResponse(with result: Result<User, Error>) {
+    private func handleLoginResponse(with result: Result<(), Error>) {
         switch result {
         case .failure(let error):
             showAlert(with: "Error", and: "Could not log in. Error: \(error)")

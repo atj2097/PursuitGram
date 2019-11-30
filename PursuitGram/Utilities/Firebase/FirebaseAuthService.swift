@@ -1,10 +1,3 @@
-//
-//  FirebaseAuthService.swift
-//  PursuitGram
-//
-//  Created by God on 11/27/19.
-//  Copyright © 2019 God. All rights reserved.
-//
 
 import Foundation
 import FirebaseAuth
@@ -16,7 +9,6 @@ class FirebaseAuthService {
 
     var currentUser: User? {
         return auth.currentUser
-
     }
     
     func createNewUser(email: String, password: String, completion: @escaping (Result<User,Error>) -> ()) {
@@ -29,15 +21,43 @@ class FirebaseAuthService {
         }
     }
     
-    func loginUser(email: String, password: String, completion: @escaping (Result<User, Error>) -> ()) {
+    func updateUserFields(userName: String? = nil,photoURL: URL? = nil, completion: @escaping (Result<(),Error>) -> ()){
+        let changeRequest = auth.currentUser?.createProfileChangeRequest()
+        if let userName = userName {
+            changeRequest?.displayName = userName
+        }
+        if let photoURL = photoURL {
+            changeRequest?.photoURL = photoURL
+        }
+        changeRequest?.commitChanges(completion: { (error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        })
+    }
+    
+    func loginUser(email: String, password: String, completion: @escaping (Result<(), Error>) -> ()) {
         auth.signIn(withEmail: email, password: password) { (result, error) in
             if let user = result?.user {
-                completion(.success(user))
+                completion(.success(()))
             } else if let error = error {
                 completion(.failure(error))
             }
         }
     }
+    func logoutUser() {
+       do
+       {
+            try Auth.auth().signOut()
+       }
+       catch let error as NSError
+       {
+           print(error)
+       }
+           
+       }
 
     private init () {}
 }

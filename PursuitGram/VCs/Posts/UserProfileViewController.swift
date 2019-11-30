@@ -36,10 +36,10 @@ class UserProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     func setUpViews()  {
-        numberOfPosts.text = "\(posts.count)"
+        numberOfPosts.text = "\(posts.count) Postsx"
         emailText.text = user.email
     }
-
+    
     private func getPostsForThisUser() {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             FirestoreService.manager.getPosts(forUserID: self?.user.uid ?? "") { (result) in
@@ -63,7 +63,7 @@ class UserProfileViewController: UIViewController {
 
 extension UserProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return posts.count
+        return posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
