@@ -32,6 +32,7 @@
 		CBB80522238F0E28000B3AA3 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB80521238F0E28000B3AA3 /* UserProfileViewController.swift */; };
 		CBB80524238F0E87000B3AA3 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB80523238F0E87000B3AA3 /* PostCell.swift */; };
 		CBB80526238F0FB9000B3AA3 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB80525238F0FB9000B3AA3 /* CreatePostVC.swift */; };
+		CBD6B0A82394C240002F85CD /* ImageDVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD6B0A72394C240002F85CD /* ImageDVC.swift */; };
 		CBF2548D238F121100E989A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBF2548C238F121100E989A7 /* GoogleService-Info.plist */; };
 		CBF2548F238F14E700E989A7 /* PursuitGramTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF2548E238F14E700E989A7 /* PursuitGramTabBarVC.swift */; };
 		CBF9267C23930F2700B77629 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF9267B23930F2700B77629 /* UIImageViewExtension.swift */; };
@@ -91,6 +92,7 @@
 		CBB80521238F0E28000B3AA3 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		CBB80523238F0E87000B3AA3 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		CBB80525238F0FB9000B3AA3 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
+		CBD6B0A72394C240002F85CD /* ImageDVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDVC.swift; sourceTree = "<group>"; };
 		CBF2548C238F121100E989A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CBF2548E238F14E700E989A7 /* PursuitGramTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PursuitGramTabBarVC.swift; sourceTree = "<group>"; };
 		CBF9267B23930F2700B77629 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				CBF2548E238F14E700E989A7 /* PursuitGramTabBarVC.swift */,
+				CBD6B0A72394C240002F85CD /* ImageDVC.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBD6B0A82394C240002F85CD /* ImageDVC.swift in Sources */,
 				CBB80520238F0E1B000B3AA3 /* AllPostsViewController.swift in Sources */,
 				CBB2957C238F097800949C32 /* AppUser.swift in Sources */,
 				CB9BEE702392D52A0044D04A /* AppError.swift in Sources */,
